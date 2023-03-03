@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/style.css">
+</head>
+<body>
+    <%- include('./partials/nav.ejs')  %> 
+    <div class="post-info container" >
+    
+        <form action="/feed/edit/<%= result.id %>/save" method="post"> 
+            <div class="mb-3">
+              <input name ="name" type="text" id="disabledTextInput" class="form-control" value= "<%= result.name %>">
+            </div>
+               
+            <div class="mb-3">
+                <textarea name ="message" class="form-control"><%= result.message %></textarea>
+            </div> 
+                <button style="padding-left: 20px; padding-right: 20px; position: fixed; left: 170px;" class="btn btn-outline-success">Save</button>
+        </form>
+
+        <form action="/feed/edit/<%= result.id %>/cancel" method="post">
+            <button id ="save-blog-btn" class="btn btn-outline-primary">Cancel</button>
+        </form>
+</body>
